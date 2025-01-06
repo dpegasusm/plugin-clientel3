@@ -1,0 +1,19 @@
+.profile-block-editor {
+	border: 1px dashed #ddd;
+	padding: 20px;
+	background-color: #f9f9f9;
+}
+.profile-block-image {
+	text-align: center;
+	margin-bottom: 15px;
+}
+.contact-preview {
+	margin-top: 10px;
+}
+.social-links-editor {
+	margin-top: 20px;
+}
+.social-links-editor h4 {
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}

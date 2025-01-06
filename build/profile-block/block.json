@@ -1,0 +1,69 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "clientel3/profile-block",
+  "version": "0.1.0",
+  "title": "Staff Profile",
+  "category": "widgets",
+  "description": "Display a staff profile on any page of the site.",
+  "supports": {
+    "html": false,
+    "align": true,
+    "alignWide": false,
+    "color": {
+      "background": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "textAlign": true
+    }
+  },
+  "attributes": {
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "name": {
+      "type": "string",
+      "default": "Name"
+    },
+    "bio": {
+      "type": "string",
+      "default": "Bio"
+    },
+    "contactText": {
+      "type": "string",
+      "default": "Contact"
+    },
+    "contactUrl": {
+      "type": "string",
+      "default": "#"
+    },
+    "socialLinks": {
+      "type": "array",
+      "default": [
+        {
+          "platform": "LinkedIn",
+          "url": ""
+        },
+        {
+          "platform": "Instagram",
+          "url": ""
+        },
+        {
+          "platform": "Facebook",
+          "url": ""
+        }
+      ]
+    }
+  },
+  "textdomain": "clientel3",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "editorScript": "file:../../build/profile-block.js"
+}

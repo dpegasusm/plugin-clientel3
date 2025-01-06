@@ -1,0 +1,28 @@
+{
+	"name": "wordpress/clientel3-plugin",
+	"type": "package",
+	"description": "Clientel3 plugin territory items.",
+	"keywords": [
+		"WordPress",
+		"Plugins"
+	],
+	"homepage": "https://github.com/dpegasusm/plugin-clientel3/tree/master",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "David Marshall",
+			"homepage": "https://github.com/dpegasusm/plugin-clientel3"
+		}
+	],
+	"require": {
+		"php": ">=5.6"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.0"
+	}
+}
