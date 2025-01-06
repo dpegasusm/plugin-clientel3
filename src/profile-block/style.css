@@ -1,65 +1,70 @@
 .profile-block {
-	text-align: center;
-	border: 2px solid #b0dfe5;
-	padding: 20px;
-	border-radius: 10px;
-	max-width: 400px;
-	margin: auto;
-	background-color: #f9f9f9;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px !important;
+    margin: auto;
 }
+
+.profile-information {
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Background Effect */
+.profile-information::before {
+	content: '';
+	position: absolute;
+	top: -50px;
+	left: -50px;
+	width: 200px;
+	height: 200px;
+	background-color: #a8d7d6; /* Teal color */
+	border-radius: 50%; /* Makes it a circular shape */
+	z-index: -1; /* Places it behind the card content */
+	transform: translateY(-50%);
+}
+
+.profile-information::after {
+	content: '';
+	position: absolute;
+	bottom: -20px;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	background-color: #f9f9f9; /* Matches the light background color */
+	z-index: -1; /* Places it behind the card content */
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 50%); /* Creates the angular effect */
+}
+
 .profile-image {
-	border-radius: 50%;
-	max-width: 150px;
-	margin-bottom: 15px;
+    max-width: 200px !important;
+    margin: 0px auto;
+    margin-bottom: 15px;
 }
+
 .profile-name {
-	font-family: 'Arial', sans-serif;
-	font-size: 1.5rem;
-	color: #333;
-	margin-bottom: 10px;
+    font-family: 'Arial',sans-serif;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: left;
 }
+
 .profile-bio {
-	font-family: 'Arial', sans-serif;
-	font-size: 1rem;
-	color: #666;
-	margin-bottom: 20px;
+    font-family: 'Arial',sans-serif;
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: left;
 }
+
 .profile-contact-button {
-	display: inline-block;
-	padding: 10px 20px;
-	background-color: #a0e0d6;
-	color: #000;
-	text-decoration: none;
-	border-radius: 5px;
-	font-family: 'Arial', sans-serif;
-	margin-bottom: 20px;
+    font-weight: 600;
 }
-.profile-contact-button:hover {
-	background-color: #88cbb9;
-}
+
 .social-links {
-	display: flex;
-	justify-content: center;
-	gap: 10px;
-}
-.social-link {
-	font-family: 'Arial', sans-serif;
-	font-size: 1rem;
-	text-decoration: none;
-	padding: 8px 15px;
-	border-radius: 5px;
-	color: white;
-	background-color: #0073e6;
-}
-.social-link:hover {
-	background-color: #005bb5;
-}
-.social-link.social-linkedin {
-	background-color: #0077b5;
-}
-.social-link.social-instagram {
-	background-color: #e4405f;
-}
-.social-link.social-facebook {
-	background-color: #3b5998;
+    display: flex;
+    justify-content: center;
+    gap: 10px
 }

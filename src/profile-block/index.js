@@ -55,13 +55,13 @@ registerBlockType(metadata.name, {
     },
     edit({ attributes, setAttributes }) {
         const { imageUrl, name, bio, contactText, contactUrl, socialLinks } = attributes;
-
+    
         const updateSocialLink = (index, newValue) => {
             const updatedLinks = [...socialLinks];
             updatedLinks[index] = { ...updatedLinks[index], ...newValue };
             setAttributes({ socialLinks: updatedLinks });
         };
-
+    
         return (
             <>
                 <InspectorControls>
@@ -85,7 +85,7 @@ registerBlockType(metadata.name, {
                         ))}
                     </PanelBody>
                 </InspectorControls>
-
+    
                 <div className="profile-block-editor">
                     {/* Image Upload */}
                     <div className="profile-block-image">
@@ -108,62 +108,68 @@ registerBlockType(metadata.name, {
                             />
                         )}
                     </div>
-
-                    {/* Name */}
-                    <RichText
-                        tagName="h3"
-                        value={name}
-                        onChange={(value) => setAttributes({ name: value })}
-                        placeholder="Enter name"
-                    />
-
-                    {/* Bio */}
-                    <RichText
-                        tagName="p"
-                        value={bio}
-                        onChange={(value) => setAttributes({ bio: value })}
-                        placeholder="Enter bio"
-                    />
-
-                    {/* Contact Button */}
-                    <div className="wp-block-buttons">
-                        <div className="wp-block-button has-custom-font-size has-extra-small-font-size">
-                            <a
-                                className="wp-block-button__link has-black-color has-green-background-color has-text-color has-background has-link-color wp-element-button"
-                                href={contactUrl || '#'}
-                            >
-                                <RichText
-                                    tagName="span"
-                                    value={contactText}
-                                    onChange={(value) =>
-                                        setAttributes({ contactText: value })
-                                    }
-                                    placeholder="Contact Button Text"
-                                />
-                            </a>
-                        </div>
+    
+                    {/* Profile Information Container */}
+                    <div className="profile-information">
+                        <RichText
+                            tagName="h3"
+                            value={name}
+                            onChange={(value) => setAttributes({ name: value })}
+                            placeholder="Enter name"
+                            className="profile-name"
+                        />
+                        <RichText
+                            tagName="p"
+                            value={bio}
+                            onChange={(value) => setAttributes({ bio: value })}
+                            placeholder="Enter bio"
+                            className="profile-bio"
+                        />
                     </div>
-
+    
+                    {/* Contact Button */}
+                    {contactUrl && (
+                        <div className="wp-block-buttons">
+                            <div className="wp-block-button has-custom-font-size has-extra-small-font-size">
+                                <a
+                                    className="wp-block-button__link has-black-color has-green-background-color has-text-color has-background has-link-color wp-element-button"
+                                    href={contactUrl}
+                                >
+                                    <RichText
+                                        tagName="span"
+                                        value={contactText}
+                                        onChange={(value) =>
+                                            setAttributes({ contactText: value })
+                                        }
+                                        placeholder="Contact Button Text"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    )}
+    
                     {/* Social Links */}
-                    <div
-                        className="wp-block-coblocks-social-profiles alignwide"
-                        data-size="sml"
-                        data-text-align="center"
-                    >
-                        {socialLinks.map(
-                            (social, index) =>
-                                social.url && (
-                                    <a
-                                        key={index}
-                                        href={social.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className={`social-link social-${social.platform.toLowerCase()}`}
-                                    >
-                                        {social.platform}
-                                    </a>
-                                )
-                        )}
+                    <div className="wp-block-coblocks-social wp-block-coblocks-social-profiles alignwide has-text-align-center has-colors">
+                        <ul>
+                            {socialLinks.map(
+                                (social, index) =>
+                                    social.url && (
+                                        <li key={index}>
+                                            <a
+                                                href={social.url}
+                                                title={social.platform}
+                                                className={`wp-block-button__link wp-block-coblocks-social__button wp-block-coblocks-social__button--${social.platform.toLowerCase()} has-padding`}
+                                                style={{ borderRadius: '40px' }}
+                                            >
+                                                <span className="wp-block-coblocks-social__icon"></span>
+                                                <span className="wp-block-coblocks-social__text">
+                                                    {social.platform}
+                                                </span>
+                                            </a>
+                                        </li>
+                                    )
+                            )}
+                        </ul>
                     </div>
                 </div>
             </>
@@ -171,47 +177,55 @@ registerBlockType(metadata.name, {
     },
     save({ attributes }) {
         const { imageUrl, name, bio, contactText, contactUrl, socialLinks } = attributes;
-
+    
         return (
             <div className="profile-block">
                 {imageUrl && (
                     <img src={imageUrl} alt="Profile Image" className="profile-image" />
                 )}
-                <h3 className="profile-name">{name}</h3>
-                <p className="profile-bio">{bio}</p>
-
-                {/* Contact Button */}
-                <div className="wp-block-buttons">
-                    <div className="wp-block-button has-custom-font-size has-extra-small-font-size">
-                        <a
-                            className="wp-block-button__link has-black-color has-green-background-color has-text-color has-background has-link-color wp-element-button"
-                            href={contactUrl}
-                        >
-                            {contactText}
-                        </a>
-                    </div>
+    
+                {/* Profile Information Container */}
+                <div className="profile-information">
+                    <h3 className="profile-name">{name}</h3>
+                    <p className="profile-bio">{bio}</p>
                 </div>
-
+    
+                {/* Contact Button */}
+                {contactUrl && (
+                    <div className="wp-block-buttons">
+                        <div className="wp-block-button has-custom-font-size has-extra-small-font-size">
+                            <a
+                                className="wp-block-button__link has-black-color has-green-background-color has-text-color has-background has-link-color wp-element-button"
+                                href={contactUrl}
+                            >
+                                {contactText}
+                            </a>
+                        </div>
+                    </div>
+                )}
+    
                 {/* Social Links */}
-                <div
-                    className="wp-block-coblocks-social-profiles alignwide"
-                    data-size="sml"
-                    data-text-align="center"
-                >
-                    {socialLinks.map(
-                        (social, index) =>
-                            social.url && (
-                                <a
-                                    key={index}
-                                    href={social.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={`social-link social-${social.platform.toLowerCase()}`}
-                                >
-                                    {social.platform}
-                                </a>
-                            )
-                    )}
+                <div className="wp-block-coblocks-social wp-block-coblocks-social-profiles alignwide has-text-align-center has-colors">
+                    <ul>
+                        {socialLinks.map(
+                            (social, index) =>
+                                social.url && (
+                                    <li key={index}>
+                                        <a
+                                            href={social.url}
+                                            title={social.platform}
+                                            className={`wp-block-button__link wp-block-coblocks-social__button wp-block-coblocks-social__button--${social.platform.toLowerCase()} has-padding`}
+                                            style={{ borderRadius: '40px' }}
+                                        >
+                                            <span className="wp-block-coblocks-social__icon"></span>
+                                            <span className="wp-block-coblocks-social__text">
+                                                {social.platform}
+                                            </span>
+                                        </a>
+                                    </li>
+                                )
+                        )}
+                    </ul>
                 </div>
             </div>
         );
