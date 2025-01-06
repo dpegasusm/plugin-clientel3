@@ -23,8 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // register ativation and deactivation hooks.
-register_activation_hook( __FILE__, ' clientel3_site_plugin_activate' );
-register_deactivation_hook( __FILE__, ' clientel3_site_plugin_deactivate' );
+register_activation_hook( __FILE__, 'clientel3_site_plugin_activate' );
+register_deactivation_hook( __FILE__, 'clientel3_site_plugin_deactivate' );
 
 // Set us a definittion so that we can load pdp from anywherer.
 define( 'CLIENTEL3_PLUGIN', plugin_dir_url( __FILE__ ) );

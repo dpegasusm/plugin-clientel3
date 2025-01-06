@@ -26,11 +26,11 @@ class Clientel3_Blocks {
 	 */
 	public function init() {
 		// Register the CPT.
-		add_action( 'init', array( $this, ' clientel3_blocks_init' ) );
+		add_action( 'init', array( $this, 'clientel3_blocks_init' ) );
 
 		// Enqueue the block editor to handle these.
-		add_action( 'enqueue_block_editor_assets', array( $this, ' clientel3_site_enqueue_block_assets' ) );
-		add_action( 'enqueue_block_assets', array( $this, ' clientel3_site_enqueue_block_assets' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'clientel3_site_enqueue_block_assets' ) );
+		add_action( 'enqueue_block_assets', array( $this, 'clientel3_site_enqueue_block_assets' ) );
 	}
 
 	/**
@@ -51,7 +51,7 @@ class Clientel3_Blocks {
 	 *
 	 * @return void Enqueue the script.
 	 */
-	public function clientel3_site_enqueue_block_editor_assets() {
+	public function clientel3_site_enqueue_block_assets() {
 		wp_enqueue_script(
 			'clientel3-custom-author-profile',
 			CLIENTEL3_PLUGIN . 'build/profile-block.js',

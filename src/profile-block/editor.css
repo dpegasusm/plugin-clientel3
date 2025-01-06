@@ -1,19 +1,29 @@
 .profile-block-editor {
-	border: 1px dashed #ddd;
-	padding: 20px;
-	background-color: #f9f9f9;
+    text-align: center;
 }
-.profile-block-image {
-	text-align: center;
-	margin-bottom: 15px;
+
+.wp-block-button__link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--wp--preset--color--green, #a0e0d6);
+    color: var(--wp--preset--color--black, #000);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: var(--wp--preset--font-size--extra-small, 12px);
+    font-family: 'Arial', sans-serif;
 }
-.contact-preview {
-	margin-top: 10px;
+
+.wp-block-button__link:hover {
+    background-color: var(--wp--preset--color--green-hover, #88cbb9);
 }
-.social-links-editor {
-	margin-top: 20px;
+
+.wp-block-coblocks-social-profiles a {
+    display: inline-block;
+    margin: 5px;
+    text-decoration: none;
+    color: #333;
 }
-.social-links-editor h4 {
-	font-size: 1.2em;
-	margin-bottom: 10px;
+
+.wp-block-coblocks-social-profiles a:hover {
+    color: var(--wp--preset--color--green, #a0e0d6);
 }
