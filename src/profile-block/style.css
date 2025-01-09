@@ -1,0 +1,64 @@
+.profile-block {
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 0;
+    border-radius: 10px;
+    max-width: 400px !important;
+    margin: auto
+}
+
+.profile-information {
+    margin-top: 10px;
+    margin-bottom: var(--global--spacing-vertical);
+    text-align: left;
+    position: relative;
+    overflow-y: visible;
+    overflow-x: clip;
+    padding: var(--button--padding-horizontal)
+}
+
+.profile-information:before {
+    content: '';
+    position: absolute;
+    top: -125px;
+    left: 2px;
+    width: 100%;
+    height: calc(100% + 125px);
+    border: 2px solid var(--wp--preset--color--green);
+    overflow: hidden;
+    z-index: -1
+}
+
+.profile-information:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--global--color-background);
+    z-index: -1;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 20px 20px;
+    border-color: transparent transparent var(--wp--preset--color--green) transparent
+}
+
+.profile-image {
+    max-width: 250px !important;
+    margin: 0 auto;
+    margin-bottom: 0;
+    width: 75%;
+}
+
+.profile-name {
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: left
+}
+
+.profile-bio {
+    font-family: 'Arial',sans-serif;
+    font-size: 1rem;
+    color: var(--global--color-dark-gray);
+    text-align: left
+}

@@ -1,0 +1,35 @@
+.profile-block-editor {
+    text-align: center;
+}
+
+.profile-block-editor .profile-block-image img {
+    max-width: 200px !important;
+    margin: 0px auto;
+    margin-bottom: 15px;
+}
+
+.wp-block-button__link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--wp--preset--color--green, #a0e0d6);
+    color: var(--wp--preset--color--black, #000);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: var(--wp--preset--font-size--extra-small, 12px);
+    font-family: 'Arial', sans-serif;
+}
+
+.wp-block-button__link:hover {
+    background-color: var(--wp--preset--color--green-hover, #88cbb9);
+}
+
+.wp-block-coblocks-social-profiles a {
+    display: inline-block;
+    margin: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.wp-block-coblocks-social-profiles a:hover {
+    color: var(--wp--preset--color--green, #a0e0d6);
+}
