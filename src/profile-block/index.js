@@ -54,13 +54,7 @@ registerBlockType(metadata.name, {
         },
     },
     edit({ attributes, setAttributes }) {
-        const { imageUrl, name, bio, contactText, contactUrl, socialLinks } = attributes;
-    
-        const updateSocialLink = (index, newValue) => {
-            const updatedLinks = [...socialLinks];
-            updatedLinks[index] = { ...updatedLinks[index], ...newValue };
-            setAttributes({ socialLinks: updatedLinks });
-        };
+        const { imageUrl, name, bio, contactText, contactUrl } = attributes;
     
         return (
             <>
@@ -71,18 +65,6 @@ registerBlockType(metadata.name, {
                             value={contactUrl}
                             onChange={(value) => setAttributes({ contactUrl: value })}
                         />
-                    </PanelBody>
-                    <PanelBody title="Social Links" initialOpen={true}>
-                        {socialLinks.map((social, index) => (
-                            <TextControl
-                                key={index}
-                                label={`${social.platform} URL`}
-                                value={social.url}
-                                onChange={(url) =>
-                                    updateSocialLink(index, { url })
-                                }
-                            />
-                        ))}
                     </PanelBody>
                 </InspectorControls>
     
@@ -147,36 +129,12 @@ registerBlockType(metadata.name, {
                             </div>
                         </div>
                     )}
-    
-                    {/* Social Links */}
-                    <div className="wp-block-coblocks-social wp-block-coblocks-social-profiles alignwide has-text-align-center has-colors">
-                        <ul>
-                            {socialLinks.map(
-                                (social, index) =>
-                                    social.url && (
-                                        <li key={index}>
-                                            <a
-                                                href={social.url}
-                                                title={social.platform}
-                                                className={`wp-block-button__link wp-block-coblocks-social__button wp-block-coblocks-social__button--${social.platform.toLowerCase()} has-padding`}
-                                                style={{ borderRadius: '40px' }}
-                                            >
-                                                <span className="wp-block-coblocks-social__icon"></span>
-                                                <span className="wp-block-coblocks-social__text">
-                                                    {social.platform}
-                                                </span>
-                                            </a>
-                                        </li>
-                                    )
-                            )}
-                        </ul>
-                    </div>
                 </div>
             </>
         );
     },
     save({ attributes }) {
-        const { imageUrl, name, bio, contactText, contactUrl, socialLinks } = attributes;
+        const { imageUrl, name, bio, contactText, contactUrl } = attributes;
     
         return (
             <div className="profile-block">
@@ -203,30 +161,6 @@ registerBlockType(metadata.name, {
                         </div>
                     </div>
                 )}
-    
-                {/* Social Links */}
-                <div className="wp-block-coblocks-social wp-block-coblocks-social-profiles alignwide has-text-align-center has-colors">
-                    <ul>
-                        {socialLinks.map(
-                            (social, index) =>
-                                social.url && (
-                                    <li key={index}>
-                                        <a
-                                            href={social.url}
-                                            title={social.platform}
-                                            className={`wp-block-button__link wp-block-coblocks-social__button wp-block-coblocks-social__button--${social.platform.toLowerCase()} has-padding`}
-                                            style={{ borderRadius: '40px' }}
-                                        >
-                                            <span className="wp-block-coblocks-social__icon"></span>
-                                            <span className="wp-block-coblocks-social__text">
-                                                {social.platform}
-                                            </span>
-                                        </a>
-                                    </li>
-                                )
-                        )}
-                    </ul>
-                </div>
             </div>
         );
     },

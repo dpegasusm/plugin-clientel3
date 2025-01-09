@@ -1,70 +1,64 @@
 .profile-block {
     text-align: center;
     padding: 20px;
+    padding-bottom: 0;
     border-radius: 10px;
     max-width: 400px !important;
-    margin: auto;
+    margin: auto
 }
 
 .profile-information {
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: var(--global--spacing-vertical);
     text-align: left;
+    position: relative;
+    overflow-y: visible;
+    overflow-x: clip;
+    padding: var(--button--padding-horizontal)
 }
 
-/* Background Effect */
-.profile-information::before {
-	content: '';
-	position: absolute;
-	top: -50px;
-	left: -50px;
-	width: 200px;
-	height: 200px;
-	background-color: #a8d7d6; /* Teal color */
-	border-radius: 50%; /* Makes it a circular shape */
-	z-index: -1; /* Places it behind the card content */
-	transform: translateY(-50%);
+.profile-information:before {
+    content: '';
+    position: absolute;
+    top: -125px;
+    left: 2px;
+    width: 100%;
+    height: calc(100% + 125px);
+    border: 2px solid var(--wp--preset--color--green);
+    overflow: hidden;
+    z-index: -1
 }
 
-.profile-information::after {
-	content: '';
-	position: absolute;
-	bottom: -20px;
-	left: 0;
-	width: 100%;
-	height: 50px;
-	background-color: #f9f9f9; /* Matches the light background color */
-	z-index: -1; /* Places it behind the card content */
-	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 50%); /* Creates the angular effect */
+.profile-information:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--global--color-background);
+    z-index: -1;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 20px 20px;
+    border-color: transparent transparent var(--wp--preset--color--green) transparent
 }
 
 .profile-image {
-    max-width: 200px !important;
-    margin: 0px auto;
-    margin-bottom: 15px;
+    max-width: 250px !important;
+    margin: 0 auto;
+    margin-bottom: 0;
+    width: 75%;
 }
 
 .profile-name {
-    font-family: 'Arial',sans-serif;
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 10px;
-    text-align: left;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: left
 }
 
 .profile-bio {
     font-family: 'Arial',sans-serif;
     font-size: 1rem;
-    color: #666;
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.profile-contact-button {
-    font-weight: 600;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 10px
+    color: var(--global--color-dark-gray);
+    text-align: left
 }
