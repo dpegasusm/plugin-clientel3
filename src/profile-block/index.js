@@ -145,7 +145,10 @@ registerBlockType(metadata.name, {
                 {/* Profile Information Container */}
                 <div className="profile-information">
                     <h3 className="profile-name">{name}</h3>
-                    <p className="profile-bio">{bio}</p>
+                    <p
+                        className="profile-bio"
+                        dangerouslySetInnerHTML={{ __html: bio }}
+                    />
                 </div>
     
                 {/* Contact Button */}
